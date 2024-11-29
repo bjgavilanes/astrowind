@@ -2,11 +2,11 @@
 import type { HTMLAttributes } from 'astro/types';
 import { findImage } from '~/utils/images';
 import {
-  getImagesOptimized,
-  astroAsseetsOptimizer,
-  unpicOptimizer,
-  isUnpicCompatible,
   type ImageProps,
+  astroAsseetsOptimizer,
+  getImagesOptimized,
+  isUnpicCompatible,
+  unpicOptimizer,
 } from '~/utils/images-optimization';
 
 type Props = ImageProps;
@@ -53,9 +53,12 @@ if (
 ---
 
 {
-  !image ? (
-    <Fragment />
-  ) : (
-    <img src={image.src} crossorigin="anonymous" referrerpolicy="no-referrer" {...image.attributes} />
+  !image ? <Fragment /> : (
+    <img
+      src={image.src}
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      {...image.attributes}
+    />
   )
 }
